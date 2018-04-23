@@ -1,0 +1,5 @@
+#! /bin/sh
+
+cp fbhw.conf /etc/apache2/conf.d/
+cp fbhw.us.crt fbhw.us.chain /etc/apache2/
+openssl rsa -in fbhw.us.key -out /etc/apache2/fbhw.us.key
