@@ -24,10 +24,29 @@ a:hover, a:active
 	     
 
 .body {
+    position: relative;
     background-color: #eee;
     margin: 0 auto;
     width: 70%;
     clear: both;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    
+    background-color: #eee;
+    color: #cf5c3f;
+    font-size: 350%;
+    font-weight: bold;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+}
+.banner img {
+    padding-right: 1em;
 }
 
 .mainheader img {
@@ -60,28 +79,24 @@ img.lores {
 
 .mainheader nav {
     background-color: #666;
-    height: 40px;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
 
 .mainheader nav ul {
+    display: flex;
     list-style: none;
-    margin: 0 auto;
 }
 
 .mainheader nav ul li {
-    float: left;
-    display: inline;
+    flex: 1;
 }
 
 .mainheader nav a:link, .mainheader nav a:visited
 {
     color: #fff;
-    display: inline-block;
-    padding: 10px 25px;
-    height: 20px;
+    padding: 5px;
 }
 
 .mainheader nav a:hover,
@@ -89,12 +104,6 @@ img.lores {
 {
     background-color: #cf5c3f;
     text-shadow: none;
-}
-
-.mainheader nav ul li {
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 
 .maincontent {
@@ -117,6 +126,10 @@ img.lores {
 
 h2 {
     color: #cf5c3f;
+}
+
+.smaller {
+    font-size: small;
 }
 
 .sidebar {
@@ -233,6 +246,8 @@ aside img {
 	margin: 0 2%;
     }
 
-
+    .banner {
+	font-size: 200%;
+    }
 
 }

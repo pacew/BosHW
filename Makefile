@@ -10,7 +10,9 @@ FILES = sign1-en.html style.css sign1-ship1-1920.png \
 	index.php \
 	harborwalk-logo-ico.png \
 	harborwalk-logo-40.png \
-	script.js
+	harborwalk-logo-80.png \
+	script.js \
+	harborwalk-logo-298x300.png
 
 publish:
 	rsync $(FILES) willisson.org:/var/www/fbhw/
