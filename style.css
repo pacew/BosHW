@@ -170,7 +170,7 @@ aside img {
     color: #fff;
 }
 
-#didyouknow {
+.tailsect {
     background-color: #eee;
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -179,7 +179,7 @@ aside img {
     margin: 2% 0;
 }
 
-#didyouknow .dyn-body {
+.tailsect .tail-body {
     display: none;
 }
 
