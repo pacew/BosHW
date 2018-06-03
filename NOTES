@@ -17,3 +17,8 @@ convert assets/sign1-portrait.png -resize '600x600>' sign1-portrait-600.png
 convert assets/sign1-ad3.png -resize '600x600>' sign1-ad3-600.png
 convert assets/sign1-model.png -resize '600x600>' sign1-model-600.png
 
+
+
+key password in private file, search for boshw.us
+openssl req -new -newkey rsa:2048 -keyout boshw.key -out boshw.csr -config boshw.req
+	

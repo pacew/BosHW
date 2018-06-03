@@ -1,0 +1,37 @@
+#! /bin/sh
+
+if [ $# != 1 ]
+then
+    echo "usage: mkqr signid"
+    exit 1
+fi
+
+signid=$1
+
+qrmsg="HTTP://BOSHW.US/$signid"
+label="boshw.us/$signid"
+
+outname=qr${signid}.png
+
+cellsize=20
+
+qrencode -o core.png --margin=0 --size=${cellsize} --level=M --type=PNG "$qrmsg"
+qrencode -o grid.png            --size=${cellsize} --level=M --type=PNG "$qrmsg"
+
+core_width=`convert core.png -format "%w" info:`
+grid_width=`convert grid.png -format "%w" info:`
+
+pointsize=`convert -size "$core_width" -font Courier-Bold label:"$label" \
+	-format '%[label:pointsize]' info:`
+lh=`convert -size "$core_width" -font Courier-Bold label:"$label" \
+	-format '%h' info:`
+
+lh=`expr $lh + 6`
+
+convert -size ${core_width}x${lh} -gravity center -pointsize $pointsize \
+	-font Courier-Bold label:"$label" label.png
+
+
+convert grid.png label.png -gravity center -append $outname
+
+echo "output in $outname"
