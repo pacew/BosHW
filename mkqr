@@ -8,8 +8,16 @@ fi
 
 signid=$1
 
+# smallest style qr code can hold (upper case alpha, numeric, a few symbols):
+# 25 chars at level L
+# 20 chars at level M
+# 16 chars at level Q
+# 10 chars at level H
+
+
+# with 4 digit signid, this is 20 chars
 qrmsg="HTTP://BOSHW.US/$signid"
-label="boshw.us/$signid"
+label="BosHW.us/$signid"
 
 outname=qr${signid}.png
 

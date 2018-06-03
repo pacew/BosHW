@@ -1,4 +1,6 @@
-all:
+QRFILES = qr1801.png qr1802.png qr1803.png
+
+QRZIP=boshw-qr-$(shell date +%Y%m%d)-draft.zip
 
 FILES = sign1-en.html style.css sign1-ship1-1920.png \
 	sign1-ship1-600.png \
@@ -14,5 +16,20 @@ FILES = sign1-en.html style.css sign1-ship1-1920.png \
 	script.js \
 	harborwalk-logo-298x300.png
 
+all: $(QRZIP)
+
+qr1801.png: mkqr
+	./mkqr 1801
+
+qr1802.png: mkqr
+	./mkqr 1802
+
+qr1803.png: mkqr
+	./mkqr 1803
+
+$(QRZIP): $(QRFILES)
+	rm -f $(QRZIP)
+	zip $(QRZIP) $(QRFILES)
+
 publish:
-	rsync $(FILES) willisson.org:/var/www/fbhw/
+	rsync $(FILES) willisson.org:/var/www/boshw/
