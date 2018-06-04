@@ -1,4 +1,6 @@
-#! /bin/sh
+#! /usr/bin/env nodejs
+/* -*- mode:javascript -*- */
 
-echo "simple static site"
-echo "file://"`pwd`
+const pwjs = require ('./pwjs');
+
+pwjs.install_site ();
