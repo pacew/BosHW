@@ -8,7 +8,7 @@ function redirect_permanent ($target) {
 $path = $_SERVER['REQUEST_URI'];
 
 if ($path == "/1801")
-  redirect_permanent ("sign1-en.html");
+  redirect_permanent ("sign1801-en.html");
 
 echo ("not found");
 

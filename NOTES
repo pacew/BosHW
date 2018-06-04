@@ -13,12 +13,12 @@ make main image 1920x1080
 
 convert in.png -resize '1920x1920>' smaller.png
 
-convert assets/sign1-ship1.png -resize '1920x1920>' sign1-ship1-1920.png
-convert assets/sign1-ship1.png -resize '600x600>' sign1-ship1-600.png
+convert assets/sign1801-ship1.png -resize '1920x1920>' sign1801-ship1-1920.png
+convert assets/sign1801-ship1.png -resize '600x600>' sign1801-ship1-600.png
 convert background1-1180.png -resize '600x600>' background1-600.png
-convert assets/sign1-portrait.png -resize '600x600>' sign1-portrait-600.png
-convert assets/sign1-ad3.png -resize '600x600>' sign1-ad3-600.png
-convert assets/sign1-model.png -resize '600x600>' sign1-model-600.png
+convert assets/sign1801-portrait.png -resize '600x600>' sign1801-portrait-600.png
+convert assets/sign1801-ad3.png -resize '600x600>' sign1801-ad3-600.png
+convert assets/sign1801-model.png -resize '600x600>' sign1801-model-600.png
 
 
 

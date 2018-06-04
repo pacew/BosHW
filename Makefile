@@ -2,11 +2,11 @@ QRFILES = qr1801.png qr1802.png qr1803.png
 
 QRZIP=boshw-qr-$(shell date +%Y%m%d)-draft.zip
 
-FILES = sign1-en.html style.css sign1-ship1-1920.png \
-	sign1-ship1-600.png \
-	sign1-portrait-600.png \
-	sign1-ad3-600.png \
-	sign1-model-600.png \
+FILES = sign1801-en.html style.css sign1801-ship1-1920.png \
+	sign1801-ship1-600.png \
+	sign1801-portrait-600.png \
+	sign1801-ad3-600.png \
+	sign1801-model-600.png \
 	background1-1180.png \
 	background1-600.png \
 	index.php \
