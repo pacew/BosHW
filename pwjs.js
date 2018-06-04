@@ -240,6 +240,10 @@ async function install_site () {
   if (cfg.local_url)
     printf ("%s\n", cfg.local_url);
 
+  if (cfg.options.example_path) {
+    printf ("%s%s\n", cfg.ssl_url, cfg.options.example_path);
+  }
+
   const tmpname = "TMP.cfg";
   fs.writeFileSync (tmpname, JSON.stringify (cfg , null, "\t") + "\n");
   fs.renameSync (tmpname, "cfg.json");
