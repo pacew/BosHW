@@ -114,6 +114,7 @@ async function setup_apache (cfg) {
   conf += sprintf ("      Header set Expires 0\n");
   conf += sprintf ("    </FilesMatch>\n");
   conf += sprintf ("  </Directory>\n");
+  conf += sprintf ("  DirectoryIndex index.php\n");
   conf += sprintf ("</VirtualHost>\n");
   
   fs.writeFileSync ("TMP.conf", conf);
