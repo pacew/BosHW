@@ -17,29 +17,44 @@ signid=$1
 
 # with 4 digit signid, this is 20 chars
 qrmsg="HTTP://BOSHW.US/$signid"
-label="BosHW.us/$signid"
+url_label="http://BosHW.us/$signid"
 
 outname=qr${signid}.png
 
 cellsize=20
 
-qrencode -o core.png --margin=0 --size=${cellsize} --level=M --type=PNG "$qrmsg"
-qrencode -o grid.png            --size=${cellsize} --level=M --type=PNG "$qrmsg"
+f_core=TMP.core.png
+f_grid=TMP.grid.png
+f_url_label=TMP.url_label.png
+f_more=TMP.more.png
 
-core_width=`convert core.png -format "%w" info:`
-grid_width=`convert grid.png -format "%w" info:`
+qrencode -o $f_core --margin=0 --size=${cellsize} --level=M --type=PNG "$qrmsg"
+qrencode -o $f_grid            --size=${cellsize} --level=M --type=PNG "$qrmsg"
 
-pointsize=`convert -size "$core_width" -font Courier-Bold label:"$label" \
-	-format '%[label:pointsize]' info:`
-lh=`convert -size "$core_width" -font Courier-Bold label:"$label" \
+core_width=`convert $f_core -format "%w" info:`
+grid_width=`convert $f_grid -format "%w" info:`
+
+url_pointsize=`convert \
+	-size "$core_width" \
+	-font Courier-Bold \
+ 	label:"$url_label" \
+	-format '%[label:pointsize]' \
+	info:`
+url_h=`convert -size "$core_width" -font Courier-Bold label:"$url_label" \
 	-format '%h' info:`
 
-lh=`expr $lh + 6`
+url_h=`expr $url_h + 6`
 
-convert -size ${core_width}x${lh} -gravity center -pointsize $pointsize \
-	-font Courier-Bold label:"$label" label.png
+convert -size ${core_width}x${url_h} -gravity center -pointsize $url_pointsize \
+	-font Courier-Bold label:"$url_label" $f_url_label
 
 
-convert grid.png label.png -gravity center -append $outname
+convert -pointsize $url_pointsize \
+	-size x${url_h} \
+	-font NewCenturySchlbk-Italic \
+	label:"more info, translations..." $f_more
+
+
+convert $f_more $f_grid $f_url_label -gravity center -append $outname
 
 echo "output in $outname"
