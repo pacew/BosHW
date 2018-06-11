@@ -1,6 +1,6 @@
-QRFILES = qr1801.png qr1802.png qr1803.png
+QRFILES = qr1801.png qr1802.png qr1803.png qr1804.png
 
-QRZIP=boshw-qr-$(shell date +%Y%m%d)-draft.zip
+QRZIP=boshw-qr-$(shell date +%Y%m%d).zip
 
 FILES = sign1801-en.html style.css sign1801-ship1-1920.png \
 	sign1801-ship1-600.png \
@@ -26,6 +26,9 @@ qr1802.png: mkqr
 
 qr1803.png: mkqr
 	./mkqr 1803
+
+qr1804.png: mkqr
+	./mkqr 1804
 
 $(QRZIP): $(QRFILES)
 	rm -f $(QRZIP)

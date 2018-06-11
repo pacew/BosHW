@@ -21,7 +21,7 @@ url_label="http://BosHW.us/$signid"
 
 outname=qr${signid}.png
 
-cellsize=20
+cellsize=120
 
 f_core=TMP.core.png
 f_grid=TMP.grid.png
@@ -52,7 +52,7 @@ convert -size ${core_width}x${url_h} -gravity center -pointsize $url_pointsize \
 convert -pointsize $url_pointsize \
 	-size x${url_h} \
 	-font NewCenturySchlbk-Italic \
-	label:"more info, translations..." $f_more
+	label:"en español, more info..." $f_more
 
 
 convert $f_more $f_grid $f_url_label -gravity center -append $outname
