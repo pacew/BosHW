@@ -52,7 +52,7 @@ convert -size ${core_width}x${url_h} -gravity center -pointsize $url_pointsize \
 convert -pointsize $url_pointsize \
 	-size x${url_h} \
 	-font NewCenturySchlbk-Italic \
-	label:"en español, more info..." $f_more
+	label:"en español & more info..." $f_more
 
 
 convert $f_more $f_grid $f_url_label -gravity center -append $outname
