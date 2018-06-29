@@ -101,6 +101,7 @@ async function setup_apache (cfg) {
     printf ("sudo ln -s %s %s\n", cfg.document_root, www_dir);
   }
 
+  conf += sprintf ("  php_flag display_errors on\n");
   conf += sprintf ("  DocumentRoot %s\n", www_dir);
   conf += sprintf ("  <Directory %s>\n", www_dir);
   conf += sprintf ("    RewriteEngine on\n");

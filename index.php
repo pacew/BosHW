@@ -1,19 +1,22 @@
 <?php
 
-ini_set ('display_errors', 1);
-
-
 $signs = array ();
 
 $s = (object)NULL;
 $s->sign_num = 1801;
 $s->banner_title = "East Boston";
 $s->html_title = "Boston Harborwalk: East Boston Clipper Ships";
-$s->main_caption_html = "Samuel H. Pook was 23 when he designed"
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "Samuel H. Pook was 23 when he designed"
     ." <em>Surprise</em>, the first"
     ." of several of his very fast clipper ships, and one of the"
     ." most successful clippers in the China trade. Pook later"
     ." became a naval architect for the U.S. Navy.";
+$s->main_caption_html['es'] = "Samuel H. Pook tenía 23 años cuando"
+    ." diseñó Surprise, el primero de varios de sus muy veloces"
+    ." clippers y uno de los clippers más activos en el comercio"
+    ." con China. Más adelante, Pook se convirtió en arquitecto"
+    ." naval de la Armada de los Estados Unidos.";
 
 $signs[$s->sign_num] = $s;
 
@@ -23,7 +26,18 @@ function redirect_permanent ($target) {
   exit ();
 }
 
-$path = $_SERVER['REQUEST_URI'];
+$req = parse_url ($_SERVER['REQUEST_URI']);
+$path = $req['path'];
+
+$arg_lang = @$_REQUEST['lang'];
+
+$allowed_lang = array ();
+$allowed_lang["en"] = 1;
+$allowed_lang["es"] = 1;
+
+$lang = "en";
+if (@$allowed_lang[$arg_lang])
+    $lang = $arg_lang;
 
 /* legacy */
 if ($path == "/sign1-en.html")
@@ -45,6 +59,12 @@ function fix_target ($path) {
 	$path = preg_replace ("/[&]/", "&amp;", $path);
 	return ($path);
 }
+
+function fatal ($str) {
+	echo ("fatal: " . h($str));
+	exit();
+}
+
 
 
 $body = "";
@@ -104,9 +124,9 @@ function pfinish () {
 }
 
 function make_sign ($sign_num) {
-    global $signs, $body;
+    global $signs, $body, $lang;
     
-    $filename = sprintf ("s%d-en.html", $sign_num);
+    $filename = sprintf ("s%d-%s.html", $sign_num, $lang);
 
     pstart ();
     if (($s = @$signs[$sign_num]) == NULL) {
@@ -151,13 +171,16 @@ function make_sign ($sign_num) {
         fix_target ($t));
 
     $body .= "<div class='main-caption'>\n";
-    $body .= $s->main_caption_html;
+    $body .= $s->main_caption_html[$lang];
     $body .= "</div>\n";
 
     $body .= "</div>\n";
     $body .= "</header>\n";
 
-    $body .= file_get_contents ($filename);
+    $guts = @file_get_contents ($filename);
+    if ($guts == "")
+        fatal ("missing sign contents");
+    $body .= $guts;
 
     $body .= file_get_contents ("about.html");
 
