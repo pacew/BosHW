@@ -5,7 +5,7 @@ $signs = array ();
 $s = (object)NULL;
 $s->sign_num = 1801;
 $s->banner_title = "East Boston";
-$s->html_title = "Boston Harborwalk: East Boston Clipper Ships";
+$s->html_title = "Boston Harborwalk: Boston's Wooden Shipbuilding Center";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Samuel H. Pook was 23 when he designed"
     ." <em>Surprise</em>, the first"
@@ -17,7 +17,16 @@ $s->main_caption_html['es'] = "Samuel H. Pook tenía 23 años cuando"
     ." clippers y uno de los clippers más activos en el comercio"
     ." con China. Más adelante, Pook se convirtió en arquitecto"
     ." naval de la Armada de los Estados Unidos.";
+$signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 1802;
+$s->banner_title = "East Boston";
+$s->html_title = "Boston Harborwalk: Local Industries";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "Small buildings housed the many businesses"
+    ." operating here, and stacks of lumber lined the wharves (Border Street"
+    ." between Central Square and Maverick Street).";
 $signs[$s->sign_num] = $s;
 
 
@@ -51,6 +60,11 @@ if (preg_match ('|^/([1-9][0-9][0-9][0-9])$|', $path, $matches)) {
     exit ();
 }
 
+if ($path == "/privacy") {
+    make_privacy ();
+    exit ();
+}
+
 function h($val) {
 	return (htmlentities ($val, ENT_QUOTES, 'UTF-8'));
 }
@@ -68,12 +82,13 @@ function fatal ($str) {
 
 
 $body = "";
+$body_class = "";
 
 function pstart () {
 }
 
 function pfinish () {
-    global $body, $title, $cache_sig;
+    global $body, $body_class, $title, $cache_sig;
     
     $ret = "";
     $ret .= "<!DOCTYPE html>\n";
@@ -105,7 +120,10 @@ function pfinish () {
         ."</script>\n";
     
     $ret .= "</head>\n";
-    $ret .= "<body class='body'>\n";
+    $c = "";
+    if ($body_class)
+        $c = sprintf ("class='%s'", $body_class);
+    $ret .= sprintf ("<body %s>\n", $c);
 
     $ret .= $body;
 
@@ -124,11 +142,13 @@ function pfinish () {
 }
 
 function make_sign ($sign_num) {
-    global $signs, $body, $lang;
+    global $signs, $body, $body_class, $lang, $title;
     
     $filename = sprintf ("s%d-%s.html", $sign_num, $lang);
 
     pstart ();
+    $body_class = sprintf ("sign%d", $sign_num);
+    
     if (($s = @$signs[$sign_num]) == NULL) {
         echo ("missing sign info");
         exit ();
@@ -161,17 +181,17 @@ function make_sign ($sign_num) {
     /* caption for banner image */
     $body .= "<div>\n";
 
-    $t = sprintf ("sign%d-banner-1920.png", $sign_num);
+    $t = sprintf ("sign%d-banner-hires.jpg", $sign_num);
 	$body .= sprintf (
         "<img class='hires' src='%s' alt='' />\n", 
         fix_target ($t));
-    $t = sprintf ("sign%d-banner-600.png", $sign_num);
+    $t = sprintf ("sign%d-banner-lores.jpg", $sign_num);
 	$body .= sprintf (
         "<img class='lores' src='%s' alt='' />\n", 
         fix_target ($t));
 
     $body .= "<div class='main-caption'>\n";
-    $body .= $s->main_caption_html[$lang];
+    $body .= @$s->main_caption_html[$lang];
     $body .= "</div>\n";
 
     $body .= "</div>\n";
@@ -184,6 +204,14 @@ function make_sign ($sign_num) {
 
     $body .= file_get_contents ("about.html");
 
+    pfinish ();
+}
+
+
+function make_privacy () {
+    global $body;
+    pstart ();
+    $body .= file_get_contents ("privacy.html");
     pfinish ();
 }
 

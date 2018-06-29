@@ -4,8 +4,10 @@ body {
     font-family: Arial, 'Lucida Sans Unicode';
     line-height: 1.5;
     text-align: left;
-    background-image: url(./background1-1180.png);
 }
+
+body.sign1801 { background-image: url(./sign1801-bg-hires.jpg); }
+body.sign1802 { background-image: url(./sign1802-bg-hires.jpg); }
 
 a {
     text-decoration: none;
@@ -23,7 +25,7 @@ a:hover, a:active
 }
 	     
 
-.body {
+body {
     position: relative;
     background-color: #eee;
     margin: 0 auto;
@@ -172,7 +174,7 @@ aside img {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 
-    background-color: #666;
+    background-color: #ccc;
     margin: 2% 0;
 
 }
@@ -180,7 +182,6 @@ aside img {
 .mainfooter p {
     width: 92%;
     margin: 10px auto;
-    color: #fff;
 }
 
 .tailsect {
@@ -208,9 +209,8 @@ aside img {
 
 
 @media only screen and (min-width: 150px) and (max-width: 600px) {
-    body {
-	background-image: url(./background1-600.png);
-    }
+    body.sign1801 { background-image: url(./sign1801-bg-lores.jpg); }
+    body.sign1802 { background-image: url(./sign1802-bg-lores.jpg); }
 
     img.hires {
 	display: none;
@@ -219,7 +219,7 @@ aside img {
 	display: block;
     }
 
-    .body {
+    body {
 	width: 90%;
 	font-size: 95%;
     }
