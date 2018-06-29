@@ -8,6 +8,7 @@ body {
 
 body.sign1801 { background-image: url(./sign1801-bg-hires.jpg); }
 body.sign1802 { background-image: url(./sign1802-bg-hires.jpg); }
+body.sign1803 { background-image: url(./sign1803-bg-hires.jpg); }
 
 a {
     text-decoration: none;
@@ -211,6 +212,7 @@ aside img {
 @media only screen and (min-width: 150px) and (max-width: 600px) {
     body.sign1801 { background-image: url(./sign1801-bg-lores.jpg); }
     body.sign1802 { background-image: url(./sign1802-bg-lores.jpg); }
+    body.sign1803 { background-image: url(./sign1803-bg-lores.jpg); }
 
     img.hires {
 	display: none;

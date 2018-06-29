@@ -32,6 +32,19 @@ $s->main_caption_html['es'] = "Los edificios pequeños albergaban muchos"
     ." (Border Street entre Central Square y Maverick Street)";
 $signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 1803;
+$s->banner_title = "East Boston";
+$s->html_title = "Boston Harborwalk: Ship Repair";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "The 1928 photograph taken from the water"
+    ." shows the larger vessel on the 2000-ton double-track marine"
+    ." railway&ndash;the closer of the two railways visible ahead. At the time,"
+    ." it was the largest railway in Boston and second largest in the"
+    ." country. Crandall Dry Dock Engineers designed and built the marine"
+    ." railways on this site and moved their office here in 1891.";
+$signs[$s->sign_num] = $s;
+
 
 function redirect_permanent ($target) {
   header ("Location: $target", true, 301);

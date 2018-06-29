@@ -12,12 +12,24 @@ FILES = style.css \
 	sign1801-portrait-600.png \
 	sign1801-ad3-600.png \
 	sign1801-model-600.png \
+	s1802-en.html \
+	s1802-es.html \
 	sign1802-bg-hires.jpg \
 	sign1802-bg-lores.jpg \
 	sign1802-banner-hires.jpg \
 	sign1802-banner-lores.jpg \
 	sign1802-img1.jpg \
 	sign1802-img3.jpg \
+	s1803-en.html \
+	s1803-es.html \
+	sign1803-bg-hires.jpg \
+	sign1803-bg-lores.jpg \
+	sign1803-banner-hires.jpg \
+	sign1803-banner-lores.jpg \
+	sign1803-img1.jpg \
+	sign1803-img2.jpg \
+	sign1803-img3.jpg \
+	sign1803-img4.jpg \
 	index.php \
 	harborwalk-logo-ico.png \
 	harborwalk-logo-40.png \
