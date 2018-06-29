@@ -27,6 +27,9 @@ $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Small buildings housed the many businesses"
     ." operating here, and stacks of lumber lined the wharves (Border Street"
     ." between Central Square and Maverick Street).";
+$s->main_caption_html['es'] = "Los edificios pequeños albergaban muchos"
+    ." negocios y había pilas de maderos a lo largo de los muelles."
+    ." (Border Street entre Central Square y Maverick Street)";
 $signs[$s->sign_num] = $s;
 
 
