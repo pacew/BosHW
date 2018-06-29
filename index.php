@@ -89,6 +89,11 @@ if ($path == "/privacy") {
     exit ();
 }
 
+if ($path == "/") {
+    make_index ();
+    exit ();
+}
+
 function h($val) {
 	return (htmlentities ($val, ENT_QUOTES, 'UTF-8'));
 }
@@ -236,6 +241,28 @@ function make_privacy () {
     global $body;
     pstart ();
     $body .= file_get_contents ("privacy.html");
+    pfinish ();
+}
+
+function make_index () {
+    global $body, $signs;
+
+    pstart ();
+    foreach ($signs as $s) {
+        $body .= "<div>\n";
+        $sep = "";
+        foreach ($s->main_caption_html as $lang => $dummy) {
+            $body .= $sep;
+            $sep = " | ";
+            $t = sprintf ("/%d?lang=%s", $s->sign_num, $lang);
+            $text = sprintf ("sign%d-%s", $s->sign_num, $lang);
+            $body .= sprintf (
+                "<a href='%s'>%s</a>\n", 
+                fix_target ($t),
+                h($text));
+        }
+        $body .= "</div>\n";
+    }
     pfinish ();
 }
 
