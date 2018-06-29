@@ -36,7 +36,8 @@ FILES = style.css \
 	harborwalk-logo-80.png \
 	script.js \
 	harborwalk-logo-298x300.png \
-	privacy.html
+	privacy.html \
+	about.html
 
 all: $(QRZIP)
 
