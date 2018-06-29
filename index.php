@@ -43,6 +43,14 @@ $s->main_caption_html['en'] = "The 1928 photograph taken from the water"
     ." it was the largest railway in Boston and second largest in the"
     ." country. Crandall Dry Dock Engineers designed and built the marine"
     ." railways on this site and moved their office here in 1891.";
+$s->main_caption_html['es'] = "Esta  foto de 1928 tomada desde el agua"
+    ." muestra una embarcación en el varadero más grande con dos vías"
+    ." para embarcaciones de hasta 2000 toneladas – el más cercano de"
+    ." los varaderos que se divisan delante.  En aquella época, este"
+    ." varadero era el más grande de Boston y el segundo más grande"
+    ." del país. La compañía Crandall Dry Dock Engineers diseñó y"
+    ." construyó los varaderos en este sitio y trasladó sus oficinas"
+    ." aquí en 1891.";
 $signs[$s->sign_num] = $s;
 
 
