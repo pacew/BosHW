@@ -13,7 +13,7 @@ $s->main_caption_html['en'] = "Samuel H. Pook was 23 when he designed"
     ." most successful clippers in the China trade. Pook later"
     ." became a naval architect for the U.S. Navy.";
 $s->main_caption_html['es'] = "Samuel H. Pook tenía 23 años cuando"
-    ." diseñó Surprise, el primero de varios de sus muy veloces"
+    ." diseñó <em>Surprise</em>, el primero de varios de sus muy veloces"
     ." clippers y uno de los clippers más activos en el comercio"
     ." con China. Más adelante, Pook se convirtió en arquitecto"
     ." naval de la Armada de los Estados Unidos.";
