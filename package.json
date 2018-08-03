@@ -1,5 +1,5 @@
 {
-  "name": "hwsign",
+  "name": "BosHW",
   "version": "1.0.0",
   "description": "",
   "main": "pwjs.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "willisson.org:git/hwsign"
+    "url": "git@github.com:pacew/BosHW.git"
   },
   "author": "",
   "license": "ISC"
