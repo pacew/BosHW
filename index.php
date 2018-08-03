@@ -200,7 +200,7 @@ function make_sign ($sign_num) {
     $t = sprintf ("/%d?lang=es", $sign_num);
     $body .= sprintf ("<li><a href='%s'>Español</a></li>\n", fix_target ($t));
 
-    $body .= "<li><a href='#didyouknow'>Did you know?</a></li>\n"
+    $body .= "<li><a href='#didyouknow'>More...</a></li>\n"
         ."<li><a href='#resources'>Resources</a></li>\n"
         ."<li><a href='#aboutus'>About us</a></li>\n";
 

@@ -127,6 +127,11 @@ img.lores {
     margin-top: 2%;
 }
 
+h1 {
+    color: #1f7a8c;
+    font-size: 180%;
+}
+
 h2 {
     color: #cf5c3f;
 }
