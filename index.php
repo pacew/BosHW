@@ -117,11 +117,11 @@ function pstart () {
 }
 
 function pfinish () {
-    global $body, $body_class, $title, $cache_sig;
+    global $body, $body_class, $title, $cache_sig, $lang;
     
     $ret = "";
     $ret .= "<!DOCTYPE html>\n";
-    $ret .= "<html lang='en'>\n";
+    $ret .= sprintf ("<html lang='%s'>\n", $lang);
     $ret .= "<head>\n";
     $ret .= sprintf ("<title>%s</title>\n", h($title));
     $ret .= "<meta charset='utf-8' />\n";
