@@ -200,10 +200,22 @@ function make_sign ($sign_num) {
     $t = sprintf ("/%d?lang=es", $sign_num);
     $body .= sprintf ("<li><a href='%s'>Español</a></li>\n", fix_target ($t));
 
-    $body .= "<li><a href='#didyouknow'>More...</a></li>\n"
-        ."<li><a href='#resources'>Resources</a></li>\n"
-        ."<li><a href='#aboutus'>About us</a></li>\n";
-
+    switch ($lang) {
+    default:
+    case "en": {
+        $body .= "<li><a href='#didyouknow'>More...</a></li>\n"
+            ."<li><a href='#resources'>Resources</a></li>\n"
+            ."<li><a href='#aboutus'>About us</a></li>\n";
+        break;
+    }
+    case "es": {
+        $body .= "<li><a href='#didyouknow'>Más...</a></li>\n"
+            ."<li><a href='#resources'>Recursos</a></li>\n"
+            ."<li><a href='#aboutus'>Acerca de nosotros</a></li>\n";
+        break;
+    }
+    }
+    
     $body .= "  </ul>\n"
         ."</nav>\n";
 
@@ -231,7 +243,9 @@ function make_sign ($sign_num) {
         fatal ("missing sign contents");
     $body .= $guts;
 
-    $body .= file_get_contents ("about.html");
+    global $lang;
+    $fname = sprintf ("about-%s.html", $lang);
+    $body .= file_get_contents ($fname);
 
     pfinish ();
 }
