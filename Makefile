@@ -49,19 +49,19 @@ FILES = style.css \
 	sign1901-img3.jpg \
 	sign1901-img4.jpg \
 	sign1901-img5.jpg \
-	sign1901-img6.jpg
+	sign1901-img6.jpg \
 	\
-	s1902-en.html
-	sign1902-banner-hires.jpg
-	sign1902-banner-lores.jpg
-	sign1902-bg-hires.jpg
-	sign1902-bg-lores.jpg
-	sign1902-extra1.jpg
-	sign1902-extra2.jpg
-	sign1902-extra3.jpg
-	sign1902-extra4.jpg
-	sign1902-img3.jpg
-	sign1902-img4.jpg
+	s1902-en.html \
+	sign1902-banner-hires.jpg \
+	sign1902-banner-lores.jpg \
+	sign1902-bg-hires.jpg \
+	sign1902-bg-lores.jpg \
+	sign1902-extra1.jpg \
+	sign1902-extra2.jpg \
+	sign1902-extra3.jpg \
+	sign1902-extra4.jpg \
+	sign1902-img3.jpg \
+	sign1902-img4.jpg \
 	sign1902-img5.jpg
 
 all: $(QRZIP)
