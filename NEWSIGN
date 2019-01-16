@@ -1,0 +1,8 @@
+convert foo.tiff -resize 600 foo.jpg
+
+hires banner is 1700 wide
+lores banner is 600 wide
+sub images are 600 wide
+
+put background in style.css, in hires and lores sections
+

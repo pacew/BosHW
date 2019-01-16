@@ -1,4 +1,6 @@
-QRFILES = qr1801.png qr1802.png qr1803.png qr1804.png
+QRFILES = qr1801.png qr1802.png qr1803.png qr1804.png qr1901.png qr1902.png
+
+BG_LORES = sign1901-bg-lores.jpg
 
 QRZIP=boshw-qr-$(shell date +%Y%m%d).zip
 
@@ -40,7 +42,7 @@ FILES = style.css \
 	about-en.html \
 	about-es.html
 
-all: $(QRZIP)
+all: $(QRZIP) $(BG_LORES)
 
 qr1801.png: mkqr
 	./mkqr 1801
@@ -54,9 +56,18 @@ qr1803.png: mkqr
 qr1804.png: mkqr
 	./mkqr 1804
 
+qr1901.png: mkqr
+	./mkqr 1901
+
+qr1902.png: mkqr
+	./mkqr 1902
+
 $(QRZIP): $(QRFILES)
 	rm -f $(QRZIP)
 	zip $(QRZIP) $(QRFILES)
 
 publish:
 	rsync $(FILES) willisson.org:/var/www/boshw/
+
+sign1901-bg-lores.jpg: sign1901-bg-hires.jpg Makefile
+	convert sign1901-bg-hires.jpg -resize 600x350 sign1901-bg-lores.jpg

@@ -53,6 +53,17 @@ $s->main_caption_html['es'] = "Esta  foto de 1928 tomada desde el agua"
     ." aquí en 1891.";
 $signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 1901;
+$s->banner_title = "Charlestown";
+$s->html_title = "New Life as Floating Barracks";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "U.S.R.S. Wabash doing duty as a"
+    ." receiving ship in the Charleston Navy"
+    ." Yard in the late 1870s.";
+
+$signs[$s->sign_num] = $s;
+
 
 function redirect_permanent ($target) {
   header ("Location: $target", true, 301);
@@ -194,11 +205,17 @@ function make_sign ($sign_num) {
     $body .= "<nav>\n"
         ."  <ul>\n";
 
-    $t = sprintf ("/%d?lang=en", $sign_num);
-    $body .= sprintf ("<li><a href='%s'>English</a></li>\n", fix_target ($t));
-
-    $t = sprintf ("/%d?lang=es", $sign_num);
-    $body .= sprintf ("<li><a href='%s'>Español</a></li>\n", fix_target ($t));
+    if (isset ($s->main_caption_html['es'])) {
+        $t = sprintf ("/%d?lang=en", $sign_num);
+        $body .= sprintf (
+            "<li><a href='%s'>English</a></li>\n", 
+            fix_target ($t));
+        
+        $t = sprintf ("/%d?lang=es", $sign_num);
+        $body .= sprintf (
+            "<li><a href='%s'>Español</a></li>\n", 
+            fix_target ($t));
+    }
 
     switch ($lang) {
     default:
