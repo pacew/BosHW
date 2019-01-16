@@ -1,7 +1,5 @@
 QRFILES = qr1801.png qr1802.png qr1803.png qr1804.png qr1901.png qr1902.png
 
-BG_LORES = sign1901-bg-lores.jpg
-
 QRZIP=boshw-qr-$(shell date +%Y%m%d).zip
 
 FILES = style.css \
@@ -40,9 +38,33 @@ FILES = style.css \
 	harborwalk-logo-298x300.png \
 	privacy.html \
 	about-en.html \
-	about-es.html
+	about-es.html \
+	\
+	s1901-en.html \
+	sign1901-banner-hires.jpg \
+	sign1901-banner-lores.jpg \
+	sign1901-bg-hires.jpg \
+	sign1901-bg-lores.jpg \
+	sign1901-img2.jpg \
+	sign1901-img3.jpg \
+	sign1901-img4.jpg \
+	sign1901-img5.jpg \
+	sign1901-img6.jpg
+	\
+	s1902-en.html
+	sign1902-banner-hires.jpg
+	sign1902-banner-lores.jpg
+	sign1902-bg-hires.jpg
+	sign1902-bg-lores.jpg
+	sign1902-extra1.jpg
+	sign1902-extra2.jpg
+	sign1902-extra3.jpg
+	sign1902-extra4.jpg
+	sign1902-img3.jpg
+	sign1902-img4.jpg
+	sign1902-img5.jpg
 
-all: $(QRZIP) $(BG_LORES)
+all: $(QRZIP)
 
 qr1801.png: mkqr
 	./mkqr 1801
@@ -69,5 +91,3 @@ $(QRZIP): $(QRFILES)
 publish:
 	rsync $(FILES) willisson.org:/var/www/boshw/
 
-sign1901-bg-lores.jpg: sign1901-bg-hires.jpg Makefile
-	convert sign1901-bg-hires.jpg -resize 600x350 sign1901-bg-lores.jpg

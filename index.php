@@ -61,7 +61,17 @@ $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "U.S.R.S. Wabash doing duty as a"
     ." receiving ship in the Charleston Navy"
     ." Yard in the late 1870s.";
+$signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 1902;
+$s->banner_title = "Charlestown";
+$s->html_title = "Transformed Land";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "Joshua Winer's mural depicts"
+    ." Massachusett women and men"
+    ." engaged in seasonal encampment"
+    ." activities during the pre-Colonial era.";
 $signs[$s->sign_num] = $s;
 
 

@@ -1,8 +1,24 @@
-convert foo.tiff -resize 600 foo.jpg
-
-hires banner is 1700 wide
-lores banner is 600 wide
-sub images are 600 wide
+cp bg-hires.xcf TMP.xcf
+gimp TMP.xcf
+change tint color
+export as TMP.jpg
+convert TMP.jpg -resize 1700 signNUM-bg-hires.jpg
+convert TMP.jpg -resize 600 signNUM-bg-lores.jpg
 
 put background in style.css, in hires and lores sections
+
+make 1700 and 600 bit banner images
+signNUM-banner-hires.jpg
+signNUM-banner-lores.jpg
+
+make 600 bit wide sub images like (cropping if necessary)
+signNUM-img#.jpg
+
+edit new sign into array in index.php
+
+cp s1801-en.html sNUM-en.html
+
+add new files to git
+
+add new files to Makefile, omitting .xcf and other image precursors
 
