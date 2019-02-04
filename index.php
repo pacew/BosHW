@@ -58,7 +58,7 @@ $s->sign_num = 1901;
 $s->banner_title = "Charlestown";
 $s->html_title = "New Life as Floating Barracks";
 $s->main_caption_html = array ();
-$s->main_caption_html['en'] = "U.S.R.S. Wabash doing duty as a"
+$s->main_caption_html['en'] = "U.S.R.S. <em>Wabash</em> doing duty as a"
     ." receiving ship in the Charleston Navy"
     ." Yard in the late 1870s.";
 $signs[$s->sign_num] = $s;
