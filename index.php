@@ -5,7 +5,9 @@ $signs = array ();
 $s = (object)NULL;
 $s->sign_num = 1801;
 $s->banner_title = "East Boston";
-$s->html_title = "Boston Harborwalk: Boston's Wooden Shipbuilding Center";
+$s->html_title = array();
+$s->html_title['en'] = "Boston Harborwalk: Boston's Wooden Shipbuilding Center";
+$s->html_title['es'] = "El centro de construcción naval en madera de Boston";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Samuel H. Pook was 23 when he designed"
     ." <em>Surprise</em>, the first"
@@ -22,7 +24,9 @@ $signs[$s->sign_num] = $s;
 $s = (object)NULL;
 $s->sign_num = 1802;
 $s->banner_title = "East Boston";
-$s->html_title = "Boston Harborwalk: Local Industries";
+$s->html_title = array();
+$s->html_title['en'] = "Boston Harborwalk: Local Industries";
+$s->html_title['es'] = "Boston Harborwalk: Industrias locales";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Small buildings housed the many businesses"
     ." operating here, and stacks of lumber lined the wharves (Border Street"
@@ -35,7 +39,9 @@ $signs[$s->sign_num] = $s;
 $s = (object)NULL;
 $s->sign_num = 1803;
 $s->banner_title = "East Boston";
-$s->html_title = "Boston Harborwalk: Ship Repair";
+$s->html_title = array();
+$s->html_title['en'] = "Boston Harborwalk: Ship Repair";
+$s->html_title['es'] = "Boston Harborwalk: Reparación de Embarcaciones";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "The 1928 photograph taken from the water"
     ." shows the larger vessel on the 2000-ton double-track marine"
@@ -56,22 +62,30 @@ $signs[$s->sign_num] = $s;
 $s = (object)NULL;
 $s->sign_num = 1901;
 $s->banner_title = "Charlestown";
-$s->html_title = "New Life as Floating Barracks";
+$s->html_title = array();
+$s->html_title['en'] = "New Life as Floating Barracks";
+$s->html_title['es'] = "Nueva vida como cuarteles flotantes";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "U.S.R.S. <em>Wabash</em> doing duty as a"
     ." receiving ship in the Charleston Navy"
     ." Yard in the late 1870s.";
+$s->main_caption_html['es'] = "La embarcación U.S.R.S. Wabash operando como"
+    ."buque receptor en Charleston Navy Yard a fines de la década de 1870.";
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
 $s->sign_num = 1902;
 $s->banner_title = "Charlestown";
-$s->html_title = "Transformed Land";
+$s->html_title['en'] = "Transformed Land";
+$s->html_title['es'] = "Tierra transformada";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Joshua Winer's mural depicts"
     ." Massachusett women and men"
     ." engaged in seasonal encampment"
     ." activities during the pre-Colonial era.";
+$s->main_caption_html['es'] = "El mural de Joshua Winer muestra a mujeres y"
+    ." hombres de Massachusetts que participan en actividades en un"
+    ." campamento estacional durante la era precolonial.";
 $signs[$s->sign_num] = $s;
 
 
@@ -203,7 +217,9 @@ function make_sign ($sign_num) {
         echo ("missing sign info");
         exit ();
     }
-    $title = $s->html_title;
+    
+    if (($title = @$s->html_title[$lang]) == "")
+        $title = $s->html_title['en'];
 
     $body .= "<div class='banner'>\n";
     $body .= "  <img src='harborwalk-logo-80.png' alt='' />\n";

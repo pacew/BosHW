@@ -1,0 +1,6 @@
+to add a spanish translation to an existing sign:
+
+add main caption in index.php - this will trigger listing the spanish
+option in the index page
+
+cp s#-en.html s#-es.html edit
