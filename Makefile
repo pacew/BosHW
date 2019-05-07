@@ -64,7 +64,10 @@ FILES = style.css \
 	sign1902-extra4.jpg \
 	sign1902-img3.jpg \
 	sign1902-img4.jpg \
-	sign1902-img5.jpg
+	sign1902-img5.jpg \
+
+AUDIO = audio/Transformed-Land-in-Charlestown.mp3
+
 
 all: $(QRZIP)
 
@@ -91,5 +94,6 @@ $(QRZIP): $(QRFILES)
 	zip $(QRZIP) $(QRFILES)
 
 publish:
-	rsync $(FILES) willisson.org:/var/www/boshw/
+	rsync -avz $(FILES) willisson.org:/var/www/boshw/
+	rsync -avz $(AUDIO) willisson.org:/var/www/boshw/audio/
 
