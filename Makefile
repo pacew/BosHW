@@ -41,6 +41,7 @@ FILES = style.css \
 	about-es.html \
 	\
 	s1901-en.html \
+	s1901-es.html \
 	sign1901-banner-hires.jpg \
 	sign1901-banner-lores.jpg \
 	sign1901-bg-hires.jpg \
@@ -52,6 +53,7 @@ FILES = style.css \
 	sign1901-img6.jpg \
 	\
 	s1902-en.html \
+	s1902-es.html \
 	sign1902-banner-hires.jpg \
 	sign1902-banner-lores.jpg \
 	sign1902-bg-hires.jpg \

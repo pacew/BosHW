@@ -183,6 +183,11 @@ function pfinish () {
         ." gtag('config', 'UA-120321645-1');\n"
         ."</script>\n";
     
+    $ret .= sprintf ("<script>\n"
+        ."var test_mode = %s;\n"
+        ."</script>\n",
+        @$_REQUEST['test'] ? 1 : 0);
+
     $ret .= "</head>\n";
     $c = "";
     if ($body_class)
