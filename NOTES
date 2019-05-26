@@ -36,6 +36,7 @@ convert assets/sign1801-model.png -resize '600x600>' sign1801-model-600.png
 
 
 key password in private file, search for boshw.us
-openssl req -new -newkey rsa:2048 -keyout boshw.key -out boshw.csr -config boshw.req
+openssl req -new -newkey rsa:2048 -keyout boshw.us.key -out boshw.us.csr -config boshw.us.req
+will prompt for password
 
 openssl rsa -in boshw.us.key -out /etc/apache2/boshw.us.key
