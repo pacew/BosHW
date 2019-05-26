@@ -6,6 +6,4 @@ function tail_click (ev) {
 
 $(function () {
   $(".tail-question a").click (tail_click);
-    if (window.test_mode)
-	$("audio").show();
 });

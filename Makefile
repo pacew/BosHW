@@ -66,8 +66,11 @@ FILES = style.css \
 	sign1902-img4.jpg \
 	sign1902-img5.jpg \
 
-AUDIO = audio/Transformed-Land-in-Charlestown.mp3
-
+AUDIO = audio/floating-barracks.mp3 \
+	audio/local-industries.mp3 \
+	audio/shipbuilding-center.mp3 \
+	audio/ship-repair.mp3 \
+	audio/transformed-land.mp3
 
 all: $(QRZIP)
 
