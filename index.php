@@ -88,6 +88,18 @@ $s->main_caption_html['es'] = "El mural de Joshua Winer muestra a mujeres y"
     ." campamento estacional durante la era precolonial.";
 $signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 1903;
+$s->banner_title = "East Boston";
+$s->html_title['en'] = "Exploring the Living Shoreline";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "Saltmarsh chordgrass"
+    ." (<em>Spartina alterniflora</em>) and saltmeadow cordgrass"
+    ." (<em>Spartina patens</em>) were the original plant species"
+    ." introduced into the low and high marsh. Many additional plants"
+    ." now call the Living Shoreline home. How many can you identify?<";
+$signs[$s->sign_num] = $s;
+
 
 function redirect_permanent ($target) {
   header ("Location: $target", true, 301);

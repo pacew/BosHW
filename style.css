@@ -12,6 +12,9 @@ body.sign1803 { background-image: url(./sign1803-bg-hires.jpg); }
 
 body.sign1901 { background-image: url(./sign1901-bg-hires.jpg); }
 body.sign1902 { background-image: url(./sign1902-bg-hires.jpg); }
+body.sign1903 { background-image: url(./sign1903-bg-hires.jpg); }
+body.sign1904 { background-image: url(./sign1904-bg-hires.jpg); }
+body.sign1905 { background-image: url(./sign1905-bg-hires.jpg); }
 
 a {
     text-decoration: none;
@@ -224,6 +227,9 @@ aside img {
 
     body.sign1901 { background-image: url(./sign1901-bg-lores.jpg); }
     body.sign1902 { background-image: url(./sign1902-bg-lores.jpg); }
+    body.sign1903 { background-image: url(./sign1903-bg-lores.jpg); }
+    body.sign1904 { background-image: url(./sign1904-bg-lores.jpg); }
+    body.sign1905 { background-image: url(./sign1905-bg-lores.jpg); }
 
     img.hires {
 	display: none;
