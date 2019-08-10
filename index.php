@@ -112,6 +112,19 @@ $s->main_caption_html['en'] = "Iron-hulled <em>R. B. Forbes</em>"
     ." used extensively in salvage operations.";
 $signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 1905;
+$s->banner_title = "East Boston";
+$s->html_title['en'] = "View of Boston in 1848";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "<p>Much has changed along Boston's"
+    ." waterfront and in the harbor since this image was drawn in 1848."
+    ." Wharves were contructed and mud flats filled, creating more land."
+    ." Buildings went up; others were torn down.</p>"
+    ." <p><strong>What else is different?"
+    ." Which Boston landmarks can you still see today?</strong></p>\n";
+$signs[$s->sign_num] = $s;
+
 
 function redirect_permanent ($target) {
   header ("Location: $target", true, 301);
