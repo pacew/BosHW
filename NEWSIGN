@@ -2,7 +2,7 @@ cp bg-hires.xcf TMP.xcf
 gimp TMP.xcf
 change tint color
 export as TMP.jpg
-convert TMP.jpg -resize 1700 signNUM-bg-hires.jpg
+convert TMP.jpg -resize 1024 signNUM-bg-hires.jpg
 convert TMP.jpg -resize 600 signNUM-bg-lores.jpg
 
 put background in style.css, in hires and lores sections
@@ -16,7 +16,7 @@ signNUM-img#.jpg
 
 edit new sign into array in index.php
 
-cp s1801-en.html sNUM-en.html
+cp s1903-en.html sNUM-en.html
 
 add new files to git
 

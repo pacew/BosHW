@@ -100,6 +100,18 @@ $s->main_caption_html['en'] = "Saltmarsh chordgrass"
     ." now call the Living Shoreline home. How many can you identify?<";
 $signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 1904;
+$s->banner_title = "East Boston";
+$s->html_title['en'] = "Prolific inventor: Otis Tufts";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "Iron-hulled <em>R. B. Forbes</em>"
+    ." with its twin smoke stacks is shown alongside the"
+    ." <em>U.S.S.Jamestown</em>, famous for its famine relief"
+    ." journey to Ireland. The <em>R. B. Forbes</em> was also"
+    ." used extensively in salvage operations.";
+$signs[$s->sign_num] = $s;
+
 
 function redirect_permanent ($target) {
   header ("Location: $target", true, 301);
