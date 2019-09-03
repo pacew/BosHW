@@ -346,21 +346,47 @@ function make_privacy () {
 function make_index () {
     global $body, $signs;
 
-    pstart ();
+    $locs = array ();
     foreach ($signs as $s) {
-        $body .= "<div>\n";
-        $sep = "";
-        foreach ($s->main_caption_html as $lang => $dummy) {
-            $body .= $sep;
-            $sep = " | ";
-            $t = sprintf ("/%d?lang=%s", $s->sign_num, $lang);
-            $text = sprintf ("sign%d-%s", $s->sign_num, $lang);
-            $body .= sprintf (
-                "<a href='%s'>%s</a>\n", 
-                fix_target ($t),
-                h($text));
+        if (! isset ($locs[$s->banner_title]))
+            $locs[$s->banner_title] = array ();
+        $locs[$s->banner_title][] = $s;
+    }
+
+    pstart ();
+    $body .= "<h1>Signs on the Boston Harborwalk</h1>\n";
+    foreach ($locs as $banner_title => $locsigns) {
+        $body .= "<div class='index_loc'>\n";
+        $body .= sprintf ("<h2>%s</h2>\n", h($banner_title));
+        foreach ($locsigns as $s) {
+            $main_target = sprintf ("/%d?lang=en", $s->sign_num);
+            $img = sprintf ("sign%d-banner-lores.jpg", $s->sign_num);
+
+            $body .= "<div class='index_sign'>\n";
+            $body .= sprintf ("<h3><a href='%s'>%s</a></h3>\n", 
+                fix_target ($main_target),
+                $s->html_title['en']);
+
+            $body .= sprintf ("<a href='%s'>\n", fix_target ($main_target));
+            $body .= sprintf ("<img src='%s' alt='' />\n", 
+                fix_target ($img));
+            $body .= "</a>\n";
+            $sep = "";
+            foreach ($s->main_caption_html as $lang => $dummy) {
+                $body .= $sep;
+                $sep = " | ";
+                $t = sprintf ("/%d?lang=%s", $s->sign_num, $lang);
+                $body .= sprintf (
+                    "<a href='%s'>%s</a>\n", 
+                    fix_target ($t),
+                    h($lang));
+            }
+
+            $body .= "</div>\n"; /* index_sign */
+
         }
-        $body .= "</div>\n";
+        $body .= "</div>\n"; /* index_loc */
+        $body .= "<div style='clear:both'></div>\n";
     }
     pfinish ();
 }
