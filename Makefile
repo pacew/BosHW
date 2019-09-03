@@ -68,6 +68,7 @@ FILES = style.css \
 	sign1902-img5.jpg \
 	\
 	s1903-en.html \
+	s1903-es.html \
 	s1904-en.html \
 	s1905-en.html \
 	sign1903-banner-hires.jpg \
@@ -89,7 +90,8 @@ FILES = style.css \
 	sign1905-banner-hires.jpg \
 	sign1905-banner-lores.jpg \
 	sign1905-bg-hires.jpg \
-	sign1905-bg-lores.jpg
+	sign1905-bg-lores.jpg \
+	sign1905-img1.jpg
 
 
 
