@@ -92,12 +92,19 @@ $s = (object)NULL;
 $s->sign_num = 1903;
 $s->banner_title = "East Boston";
 $s->html_title['en'] = "Exploring the Living Shoreline";
+$s->html_title['es'] = "Exploración de la Costa Viva";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Saltmarsh chordgrass"
     ." (<em>Spartina alterniflora</em>) and saltmeadow cordgrass"
     ." (<em>Spartina patens</em>) were the original plant species"
     ." introduced into the low and high marsh. Many additional plants"
-    ." now call the Living Shoreline home. How many can you identify?<";
+    ." now call the Living Shoreline home. How many can you identify?";
+$s->main_caption_html['es'] = "Dos tipos de espartillo"
+    ." (<em>Spartina alterniflora</em> y <em>Spartina patens</em>)"
+    ." fueron las especies de plantas introducidas originalmente"
+    ." en la marisma baja y alta. Ahora muchas más plantas se han"
+    ." establecido en la Costa Viva. &iquest;Cuántas pueden identificar?";
+
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;

@@ -22,3 +22,8 @@ add new files to git
 
 add new files to Makefile, omitting .xcf and other image precursors
 
+================================================================
+add translation
+
+index.php: add $s->html_title['es'] $s->main_caption_html['es']
+cp s###-en.html s###-es.html
