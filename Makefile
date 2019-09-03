@@ -70,6 +70,7 @@ FILES = style.css \
 	s1903-en.html \
 	s1903-es.html \
 	s1904-en.html \
+	s1904-es.html \
 	s1905-en.html \
 	sign1903-banner-hires.jpg \
 	sign1903-banner-lores.jpg \

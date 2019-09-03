@@ -111,12 +111,18 @@ $s = (object)NULL;
 $s->sign_num = 1904;
 $s->banner_title = "East Boston";
 $s->html_title['en'] = "Prolific inventor: Otis Tufts";
+$s->html_title['es'] = "Inventor prolífico: Otis Tufts";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Iron-hulled <em>R. B. Forbes</em>"
     ." with its twin smoke stacks is shown alongside the"
     ." <em>U.S.S.Jamestown</em>, famous for its famine relief"
     ." journey to Ireland. The <em>R. B. Forbes</em> was also"
     ." used extensively in salvage operations.";
+$s->main_caption_html['es'] = "El <em>R.B. Forbes</em>, con su casco"
+    ." de hierro y con sus chimeneas gemelas, se muestra junto al"
+    ." <em>U.S.S. Jamestown</em>, famoso por su viaje para ayudar"
+    ." durante la hambruna en Irlanda. El <em>R.B. Forbes</em>"
+    ." también se usó ampliamente en operaciones de rescate.";
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;

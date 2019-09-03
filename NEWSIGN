@@ -27,3 +27,8 @@ add translation
 
 index.php: add $s->html_title['es'] $s->main_caption_html['es']
 cp s###-en.html s###-es.html
+
+in More section, copy the headline and first 2 items from
+s1801-es.html; rest stays english
+
+add new files to Makefile publish
