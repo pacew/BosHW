@@ -6,7 +6,7 @@ $s = (object)NULL;
 $s->sign_num = 1801;
 $s->banner_title = "East Boston";
 $s->html_title = array();
-$s->html_title['en'] = "Boston Harborwalk: Boston's Wooden Shipbuilding Center";
+$s->html_title['en'] = "Boston's Wooden Shipbuilding Center";
 $s->html_title['es'] = "El centro de construcción naval en madera de Boston";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Samuel H. Pook was 23 when he designed"
@@ -25,8 +25,8 @@ $s = (object)NULL;
 $s->sign_num = 1802;
 $s->banner_title = "East Boston";
 $s->html_title = array();
-$s->html_title['en'] = "Boston Harborwalk: Local Industries";
-$s->html_title['es'] = "Boston Harborwalk: Industrias locales";
+$s->html_title['en'] = "Local Industries";
+$s->html_title['es'] = "Industrias locales";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "Small buildings housed the many businesses"
     ." operating here, and stacks of lumber lined the wharves (Border Street"
@@ -40,8 +40,8 @@ $s = (object)NULL;
 $s->sign_num = 1803;
 $s->banner_title = "East Boston";
 $s->html_title = array();
-$s->html_title['en'] = "Boston Harborwalk: Ship Repair";
-$s->html_title['es'] = "Boston Harborwalk: Reparación de Embarcaciones";
+$s->html_title['en'] = "Ship Repair";
+$s->html_title['es'] = "Reparación de Embarcaciones";
 $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "The 1928 photograph taken from the water"
     ." shows the larger vessel on the 2000-ton double-track marine"
@@ -104,6 +104,7 @@ $s->main_caption_html['es'] = "Dos tipos de espartillo"
     ." fueron las especies de plantas introducidas originalmente"
     ." en la marisma baja y alta. Ahora muchas más plantas se han"
     ." establecido en la Costa Viva. &iquest;Cuántas pueden identificar?";
+$s->inplace = 1;
 
 $signs[$s->sign_num] = $s;
 
@@ -136,6 +137,18 @@ $s->main_caption_html['en'] = "<p>Much has changed along Boston's"
     ." Buildings went up; others were torn down.</p>"
     ." <p><strong>What else is different?"
     ." Which Boston landmarks can you still see today?</strong></p>\n";
+$signs[$s->sign_num] = $s;
+
+$s = (object)NULL;
+$s->sign_num = 1906;
+$s->banner_title = "East Boston";
+$s->html_title['en'] = "Harbor Vessels -- What do you see?";
+$s->html_title['es'] = "Barcos del puerto: ¿qué ven?";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "<p>Boston Harobr has seen many vessels over time, from canoes transporting Native Americans to the islands and fully-rigged sailing ships bound for ports around the world, to steamships bringing goods and new Bostonians to the docks.  The harbor continues to thrive.</p>";
+$s->main_caption_html['es'] = "<p>El puerto de Boston ha visto muchos barcos a lo largo del tiempo, desde canoas que transportaban a los nativos americanos a las islas e imponentes veleros con destino a puertos de todo el mundo, hasta barcos de vapor que llevaban productos y nuevos bostonianos a los muelles. El puerto continúa prosperando. </p>";
+$s->inplace = 1;
+
 $signs[$s->sign_num] = $s;
 
 
@@ -177,6 +190,34 @@ if ($path == "/privacy") {
 if ($path == "/") {
     make_index ();
     exit ();
+}
+
+if ($path == "/inplace") {
+    global $body;
+    $arg_sign_num = intval (@$_REQUEST['sign_num']);
+    $arg_inplace_num = intval (@$_REQUEST['inplace_num']);
+    
+    pstart ();
+
+    if (($s = @$signs[$arg_sign_num]) == NULL) {
+        $body .= "not found";
+        pfinish ();
+    }
+
+    $body .= "<div>\n";
+    $body .= "<a href='/'>";
+    $body .= "<img src='harborwalk-logo-80.png' alt='' />";
+    $body .= "</a>\n";
+    $body .= "</div>\n";
+
+
+    $body .= "<div class='inplace_photo'>\n";
+    $img = sprintf ("inplace%d-%d-hi.jpg?c=%d", 
+        $arg_sign_num, $arg_inplace_num, rand());
+    $body .= sprintf ("<img src='%s' alt='' />\n",
+        fix_target ($img));
+    $body .= "</div>\n";
+    pfinish ();
 }
 
 function h($val) {
@@ -277,7 +318,9 @@ function make_sign ($sign_num) {
         $title = $s->html_title['en'];
 
     $body .= "<div class='banner'>\n";
-    $body .= "  <img src='harborwalk-logo-80.png' alt='' />\n";
+    $body .= "<a href='/'>";
+    $body .= "<img src='harborwalk-logo-80.png' alt='' />";
+    $body .= "</a>\n";
     $body .= sprintf ("  <span>%s</span>\n", h($s->banner_title));
     $body .= "</div>\n";
 
@@ -371,6 +414,8 @@ function make_index () {
     foreach ($locs as $banner_title => $locsigns) {
         $body .= "<div class='index_loc'>\n";
         $body .= sprintf ("<h2>%s</h2>\n", h($banner_title));
+
+        $body .= "<div class='index_box'>\n";
         foreach ($locsigns as $s) {
             $main_target = sprintf ("/%d?lang=en", $s->sign_num);
             $img = sprintf ("sign%d-banner-lores.jpg", $s->sign_num);
@@ -381,7 +426,7 @@ function make_index () {
                 $s->html_title['en']);
 
             $body .= sprintf ("<a href='%s'>\n", fix_target ($main_target));
-            $body .= sprintf ("<img src='%s' alt='' />\n", 
+            $body .= sprintf ("<img class='index_banner' src='%s' alt='' />\n", 
                 fix_target ($img));
             $body .= "</a>\n";
             $sep = "";
@@ -395,11 +440,28 @@ function make_index () {
                     h($lang));
             }
 
-            $body .= "</div>\n"; /* index_sign */
+            if (isset ($s->inplace)) {
+                $body .= "<div>\n";
+                for ($inplace_num = 1;
+                     $inplace_num <= $s->inplace; 
+                     $inplace_num++) {
+                    $t = sprintf ("inplace?sign_num=%d&inplace_num=%d",
+                        $s->sign_num, $inplace_num);
+                    $img = sprintf ("inplace%d-%d-lo.jpg?c=%d", 
+                        $s->sign_num, $inplace_num, rand());
+                    $body .= sprintf ("<a href='%s'>", fix_target ($t));
+                    $body .= sprintf ("<img src='%s' alt='' />\n",
+                        fix_target ($img));
+                    $body .= "</a>\n";
+                }
+                $body .= "</div>\n";
+            }
 
+            $body .= "</div>\n"; /* index_sign */
         }
+        $body .= "</div>\n"; /* index_box */
+
         $body .= "</div>\n"; /* index_loc */
-        $body .= "<div style='clear:both'></div>\n";
     }
     pfinish ();
 }

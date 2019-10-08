@@ -1,5 +1,5 @@
 QRFILES = qr1801.png qr1802.png qr1803.png qr1804.png qr1901.png qr1902.png \
-	qr1903.png qr1904.png qr1905.png
+	qr1903.png qr1904.png qr1905.png qr1906.png
 
 QRZIP=boshw-qr-$(shell date +%Y%m%d).zip
 
@@ -79,6 +79,8 @@ FILES = style.css \
 	sign1903-img1.jpg \
 	sign1903-img2.jpg \
 	sign1903-img3.jpg \
+	inplace1903-1-hi.jpg \
+	inplace1903-1-lo.jpg \
 	\
 	sign1904-banner-hires.jpg \
 	sign1904-banner-lores.jpg \
@@ -92,7 +94,24 @@ FILES = style.css \
 	sign1905-banner-lores.jpg \
 	sign1905-bg-hires.jpg \
 	sign1905-bg-lores.jpg \
-	sign1905-img1.jpg
+	sign1905-img1.jpg \
+	\
+	sign1906-banner-hires.jpg \
+	sign1906-banner-lores.jpg \
+	sign1906-bg-hires.jpg \
+	sign1906-bg-lores.jpg \
+	inplace1906-1-hi.jpg \
+	inplace1906-1-lo.jpg \
+	s1906-en.html \
+	s1906-es.html \
+	sign1906-1.jpg \
+	sign1906-2.jpg \
+	sign1906-3.jpg \
+	sign1906-4.jpg \
+	sign1906-5.jpg \
+	sign1906-6.jpg \
+	sign1906-7.jpg \
+	sign1906-8.jpg
 
 
 
@@ -130,6 +149,9 @@ qr1904.png: mkqr
 
 qr1905.png: mkqr
 	./mkqr 1905
+
+qr1906.png: mkqr
+	./mkqr 1906
 
 $(QRZIP): $(QRFILES)
 	rm -f $(QRZIP)

@@ -2,8 +2,14 @@ see LANG
 
 sign1901 - ask for background image
 
+jpg info:
+exiv2 FILE.jpg
 
+convert FILE.jpg -resize '1920>' inplace1903-1-hi.jpg
+convert FILE.jpg -resize '100>' inplace1903-1-lo.jpg
+set inplace flag in index.php
 
+https://stackoverflow.com/questions/8554043/what-is-a-clearfix
 
 
 ================================================================

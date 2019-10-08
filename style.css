@@ -15,6 +15,7 @@ body.sign1902 { background-image: url(./sign1902-bg-hires.jpg); }
 body.sign1903 { background-image: url(./sign1903-bg-hires.jpg); }
 body.sign1904 { background-image: url(./sign1904-bg-hires.jpg); }
 body.sign1905 { background-image: url(./sign1905-bg-hires.jpg); }
+body.sign1906 { background-image: url(./sign1906-bg-hires.jpg); }
 
 a {
     text-decoration: none;
@@ -52,7 +53,6 @@ body {
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-
 }
 .banner img {
     padding-right: 1em;
@@ -219,16 +219,23 @@ aside img {
     margin: 2% 0;
 }
 
+.index_box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .index_sign {
-    float: left;
     width: 250px;
-    height: 300px;
     background: #ffe;
     padding: 1em;
     margin: 0.5em;
 }
 
-.index_sign img {
+.index_banner {
+    width: 100%;
+}
+
+.inplace_photo img {
     width: 100%;
 }
 
@@ -242,6 +249,7 @@ aside img {
     body.sign1903 { background-image: url(./sign1903-bg-lores.jpg); }
     body.sign1904 { background-image: url(./sign1904-bg-lores.jpg); }
     body.sign1905 { background-image: url(./sign1905-bg-lores.jpg); }
+    body.sign1906 { background-image: url(./sign1906-bg-lores.jpg); }
 
     img.hires {
 	display: none;

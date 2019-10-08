@@ -20,6 +20,8 @@ cp s1903-en.html sNUM-en.html
 
 add new files to git
 
+add qr code to Makefile
+
 add new files to Makefile, omitting .xcf and other image precursors
 
 ================================================================
