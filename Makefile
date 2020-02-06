@@ -39,6 +39,7 @@ FILES = style.css \
 	sign1803-img3.jpg \
 	sign1803-img4.jpg \
 	index.php \
+	sticker.php \
 	harborwalk-logo-ico.png \
 	harborwalk-logo-40.png \
 	harborwalk-logo-80.png \
