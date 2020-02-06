@@ -145,7 +145,7 @@ $s->banner_title = "East Boston";
 $s->html_title['en'] = "Harbor Vessels -- What do you see?";
 $s->html_title['es'] = "Barcos del puerto: ¿qué ven?";
 $s->main_caption_html = array ();
-$s->main_caption_html['en'] = "<p>Boston Harobr has seen many vessels over time, from canoes transporting Native Americans to the islands and fully-rigged sailing ships bound for ports around the world, to steamships bringing goods and new Bostonians to the docks.  The harbor continues to thrive.</p>";
+$s->main_caption_html['en'] = "<p>Boston Harbor has seen many vessels over time, from canoes transporting Native Americans to the islands and fully-rigged sailing ships bound for ports around the world, to steamships bringing goods and new Bostonians to the docks.  The harbor continues to thrive.</p>";
 $s->main_caption_html['es'] = "<p>El puerto de Boston ha visto muchos barcos a lo largo del tiempo, desde canoas que transportaban a los nativos americanos a las islas e imponentes veleros con destino a puertos de todo el mundo, hasta barcos de vapor que llevaban productos y nuevos bostonianos a los muelles. El puerto continúa prosperando. </p>";
 $s->inplace = 1;
 
