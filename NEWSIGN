@@ -10,6 +10,9 @@ convert TMP.png -resize 600 signNUM-bg-lores.jpg
 put background in style.css, in hires and lores sections
 
 * make hi and lo res main image
+may be useful to do
+pdfimages FILE.pdf pdfimg
+
 gimp the main image, crop, export to TMP.png
 make 1700 and 600 bit banner images
 convert TMP.png -resize 1700 signNUM-banner-hires.jpg
@@ -24,6 +27,8 @@ convert TMP.png -resize 600 signNUM-img#.jpg
 cp s1903-en.html sNUM-en.html
 
 check for non-necessary utf8 chars
+html validation
+
 
 add new files to git
 

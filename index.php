@@ -159,6 +159,14 @@ $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "<p>The Bulfinch building's prominent façade faced the harbor, to impress incoming vessels. The first floor had retail businesses, from sailmakers and coopers to barbers and grocers. The top floors provided warehouse space. The photo was taken before 1868.</p>";
 $signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 2002;
+$s->banner_title = "Wharf District";
+$s->html_title['en'] = "Trade by Sea";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "<p>Ship owners with offices on India Wharf were very active in the China Trade. Like all foreigners doing business in China, U.S. traders were restricted, during the six-month trading season, to living and completing transactions in a designated area of Quangzhou (Canton) shown on this c.1800 painting.</p>";
+$signs[$s->sign_num] = $s;
+
 
 function redirect_permanent ($target) {
   header ("Location: $target", true, 301);
