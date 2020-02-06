@@ -1,5 +1,12 @@
-QRFILES = qr1801.png qr1802.png qr1803.png qr1804.png qr1901.png qr1902.png \
-	qr1903.png qr1904.png qr1905.png qr1906.png
+QRFILES = qr1801.png qr1802.png qr1803.png qr1804.png \
+	qr1901.png qr1902.png qr1903.png \
+	qr1904.png qr1905.png qr1906.png \
+	qr2001.png qr2002.png qr2003.png
+
+QRFILES_ES = qr1801-es.png qr1802-es.png qr1803-es.png qr1804-es.png \
+	qr1901-es.png qr1902-es.png qr1903-es.png \
+	qr1904-es.png qr1905-es.png qr1906-es.png \
+	qr2001-es.png qr2002-es.png qr2003-es.png
 
 QRZIP=boshw-qr-$(shell date +%Y%m%d).zip
 
@@ -111,8 +118,35 @@ FILES = style.css \
 	sign1906-5.jpg \
 	sign1906-6.jpg \
 	sign1906-7.jpg \
-	sign1906-8.jpg
-
+	sign1906-8.jpg \
+	\
+	s2001-en.html \
+	sign2001-banner-hires.jpg \
+	sign2001-banner-lores.jpg \
+	sign2001-bg-hires.jpg \
+	sign2001-bg-lores.jpg \
+	sign2001-img1.jpg \
+	sign2001-img2.jpg \
+	sign2001-img3.jpg \
+	sign2001-img4.jpg \
+	\
+	s2002-en.html \
+	sign2002-banner-hires.jpg \
+	sign2002-banner-lores.jpg \
+	sign2002-bg-hires.jpg \
+	sign2002-bg-lores.jpg \
+	sign2002-img1.jpg \
+	sign2002-img2.jpg \
+	sign2002-img3.jpg \
+	\
+	s2003-en.html \
+	sign2003-banner-hires.jpg \
+	sign2003-banner-lores.jpg \
+	sign2003-bg-hires.jpg \
+	sign2003-bg-lores.jpg \
+	sign2003-img1.jpg \
+	sign2003-img2.jpg \
+	sign2003-img3.jpg
 
 
 AUDIO = audio/floating-barracks.mp3 \
@@ -123,39 +157,48 @@ AUDIO = audio/floating-barracks.mp3 \
 
 all: $(QRZIP)
 
-qr1801.png: mkqr
+qr1801.png qr1801-es.png: mkqr
 	./mkqr 1801
 
-qr1802.png: mkqr
+qr1802.png qr1802-es.png: mkqr
 	./mkqr 1802
 
-qr1803.png: mkqr
+qr1803.png qr1803-es.png: mkqr
 	./mkqr 1803
 
-qr1804.png: mkqr
+qr1804.png qr1804-es.png: mkqr
 	./mkqr 1804
 
-qr1901.png: mkqr
+qr1901.png qr1901-es.png: mkqr
 	./mkqr 1901
 
-qr1902.png: mkqr
+qr1902.png qr1902-es.png: mkqr
 	./mkqr 1902
 
-qr1903.png: mkqr
+qr1903.png qr1903-es.png: mkqr
 	./mkqr 1903
 
-qr1904.png: mkqr
+qr1904.png qr1904-es.png: mkqr
 	./mkqr 1904
 
-qr1905.png: mkqr
+qr1905.png qr1905-es.png: mkqr
 	./mkqr 1905
 
-qr1906.png: mkqr
+qr1906.png qr1906-es.png: mkqr
 	./mkqr 1906
 
-$(QRZIP): $(QRFILES)
+qr2001.png qr2001-es.png: mkqr
+	./mkqr 2001
+
+qr2002.png qr2002-es.png: mkqr
+	./mkqr 2002
+
+qr2003.png qr2003-es.png: mkqr
+	./mkqr 2003
+
+$(QRZIP): $(QRFILES) $(QRFILES_ES)
 	rm -f $(QRZIP)
-	zip $(QRZIP) $(QRFILES)
+	zip $(QRZIP) $(QRFILES) $(QRFILES_ES)
 
 publish:
 	rsync -avz $(FILES) willisson.org:/var/www/boshw/

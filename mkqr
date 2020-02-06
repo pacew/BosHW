@@ -20,6 +20,7 @@ qrmsg="HTTP://BOSHW.US/$signid"
 url_label="http://BosHW.us/$signid"
 
 outname=qr${signid}.png
+outname_es=qr${signid}-es.png
 
 cellsize=120
 
@@ -27,6 +28,7 @@ f_core=TMP.core.png
 f_grid=TMP.grid.png
 f_url_label=TMP.url_label.png
 f_more=TMP.more.png
+f_more_es=TMP.more_es.png
 
 qrencode -o $f_core --margin=0 --size=${cellsize} --level=M --type=PNG "$qrmsg"
 qrencode -o $f_grid            --size=${cellsize} --level=M --type=PNG "$qrmsg"
@@ -52,9 +54,14 @@ convert -size ${core_width}x${url_h} -gravity center -pointsize $url_pointsize \
 convert -pointsize $url_pointsize \
 	-size x${url_h} \
 	-font NewCenturySchlbk-Italic \
-	label:"en español & more info..." $f_more
+	label:"more info..." $f_more
 
+convert -pointsize $url_pointsize \
+	-size x${url_h} \
+	-font NewCenturySchlbk-Italic \
+	label:"en español & more info..." $f_more_es
 
 convert $f_more $f_grid $f_url_label -gravity center -append $outname
+convert $f_more_es $f_grid $f_url_label -gravity center -append $outname_es
 
-echo "output in $outname"
+echo "output in $outname $outname_es"
