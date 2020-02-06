@@ -17,6 +17,9 @@ body.sign1904 { background-image: url(./sign1904-bg-hires.jpg); }
 body.sign1905 { background-image: url(./sign1905-bg-hires.jpg); }
 body.sign1906 { background-image: url(./sign1906-bg-hires.jpg); }
 
+body.sign2001 { background-image: url(./sign2001-bg-hires.jpg); }
+
+
 a {
     text-decoration: none;
 }
@@ -250,6 +253,8 @@ aside img {
     body.sign1904 { background-image: url(./sign1904-bg-lores.jpg); }
     body.sign1905 { background-image: url(./sign1905-bg-lores.jpg); }
     body.sign1906 { background-image: url(./sign1906-bg-lores.jpg); }
+
+    body.sign2001 { background-image: url(./sign2001-bg-lores.jpg); }
 
     img.hires {
 	display: none;

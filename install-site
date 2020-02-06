@@ -1,0 +1,4 @@
+#! /bin/sh
+
+port=`head -1 TMP.conf | awk '{print $2}'`
+echo "https://local.pacew.org:$port/"

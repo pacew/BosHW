@@ -1,28 +1,38 @@
+1. copy the tint color from the final sign
+
 cp bg-hires.xcf TMP.xcf
 gimp TMP.xcf
-change tint color
-export as TMP.jpg
-convert TMP.jpg -resize 1024 signNUM-bg-hires.jpg
-convert TMP.jpg -resize 600 signNUM-bg-lores.jpg
+fill the "tint" layer with the background color from the final sign
+export as TMP.png
+convert TMP.png -resize 1024 signNUM-bg-hires.jpg
+convert TMP.png -resize 600 signNUM-bg-lores.jpg
 
 put background in style.css, in hires and lores sections
 
+* make hi and lo res main image
+gimp the main image, crop, export to TMP.png
 make 1700 and 600 bit banner images
-signNUM-banner-hires.jpg
-signNUM-banner-lores.jpg
+convert TMP.png -resize 1700 signNUM-banner-hires.jpg
+convert TMP.png -resize 600 signNUM-banner-lores.jpg
 
-make 600 bit wide sub images like (cropping if necessary)
-signNUM-img#.jpg
+* make 600px sub images
+gimp each of the sub images, crop, export to TMP.png
+convert TMP.png -resize 600 signNUM-img#.jpg
 
-edit new sign into array in index.php
+* edit new sign into array in index.php
 
 cp s1903-en.html sNUM-en.html
+
+check for non-necessary utf8 chars
 
 add new files to git
 
 add qr code to Makefile
 
 add new files to Makefile, omitting .xcf and other image precursors
+
+
+
 
 ================================================================
 add translation
