@@ -167,6 +167,14 @@ $s->main_caption_html = array ();
 $s->main_caption_html['en'] = "<p>Ship owners with offices on India Wharf were very active in the China Trade. Like all foreigners doing business in China, U.S. traders were restricted, during the six-month trading season, to living and completing transactions in a designated area of Quangzhou (Canton) shown on this c.1800 painting.</p>";
 $signs[$s->sign_num] = $s;
 
+$s = (object)NULL;
+$s->sign_num = 2003;
+$s->banner_title = "Wharf District";
+$s->html_title['en'] = "Harbor Towers Rise";
+$s->main_caption_html = array ();
+$s->main_caption_html['en'] = "<p>As part of Boston's waterfront urban renewal program, Harbor Towers was built in 1970-71 with a combination of Federal Housing Authority and private monies. Photo by Charles Dixon, October 1970.</p>";
+$signs[$s->sign_num] = $s;
+
 
 function redirect_permanent ($target) {
   header ("Location: $target", true, 301);

@@ -19,6 +19,7 @@ body.sign1906 { background-image: url(./sign1906-bg-hires.jpg); }
 
 body.sign2001 { background-image: url(./sign2001-bg-hires.jpg); }
 body.sign2002 { background-image: url(./sign2002-bg-hires.jpg); }
+body.sign2003 { background-image: url(./sign2003-bg-hires.jpg); }
 
 
 a {
@@ -257,6 +258,7 @@ aside img {
 
     body.sign2001 { background-image: url(./sign2001-bg-lores.jpg); }
     body.sign2002 { background-image: url(./sign2002-bg-lores.jpg); }
+    body.sign2003 { background-image: url(./sign2003-bg-lores.jpg); }
 
     img.hires {
 	display: none;
