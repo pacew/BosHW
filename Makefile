@@ -201,6 +201,7 @@ $(QRZIP): $(QRFILES) $(QRFILES_ES)
 	zip $(QRZIP) $(QRFILES) $(QRFILES_ES)
 
 publish:
-	rsync -avz $(FILES) willisson.org:/var/www/boshw/
+	rsync -avz $(FILES) $(QRFILES) $(QRFILES_ES) \
+		willisson.org:/var/www/boshw/
 	rsync -avz $(AUDIO) willisson.org:/var/www/boshw/audio/
 

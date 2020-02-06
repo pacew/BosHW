@@ -464,6 +464,15 @@ function make_index () {
                     h($lang));
             }
 
+            if (isset ($s->main_caption_html['es'])) {
+                $t = sprintf ("/sticker.php?s=%d&es=1", $s->sign_num);
+            } else {
+                $t = sprintf ("/sticker.php?s=%d", $s->sign_num);
+            }
+
+            $body .= $sep;
+            $body .= sprintf ("<a href='%s'>sicker</a>", $t);
+
             if (isset ($s->inplace)) {
                 $body .= "<div>\n";
                 for ($inplace_num = 1;
