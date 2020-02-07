@@ -480,15 +480,14 @@ function make_index ($admin_flag) {
                     h($lang));
             }
 
-            if (isset ($s->main_caption_html['es'])) {
-                $t = sprintf ("/sticker.php?s=%d&es=1", $s->sign_num);
-            } else {
-                $t = sprintf ("/sticker.php?s=%d", $s->sign_num);
-            }
-
             if ($admin_flag) {
                 $body .= $sep;
+                $t = sprintf ("/sticker.php?s=%d", $s->sign_num);
                 $body .= sprintf ("<a href='%s'>sticker</a>", $t);
+
+                $body .= $sep;
+                $t = sprintf ("/sticker.php?s=%d&es=1", $s->sign_num);
+                $body .= sprintf ("<a href='%s'>sticker-es</a>", $t);
             }
             
             if (isset ($s->inplace)) {
