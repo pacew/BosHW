@@ -153,6 +153,7 @@ $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
 $s->sign_num = 2001;
+$s->awaiting_installation = 1;
 $s->banner_title = "Wharf District";
 $s->html_title['en'] = "Prestigious Wharf and Building";
 $s->main_caption_html = array ();
@@ -161,6 +162,7 @@ $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
 $s->sign_num = 2002;
+$s->awaiting_installation = 1;
 $s->banner_title = "Wharf District";
 $s->html_title['en'] = "Trade by Sea";
 $s->main_caption_html = array ();
@@ -169,6 +171,7 @@ $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
 $s->sign_num = 2003;
+$s->awaiting_installation = 1;
 $s->banner_title = "Wharf District";
 $s->html_title['en'] = "Harbor Towers Rise";
 $s->main_caption_html = array ();
@@ -212,7 +215,12 @@ if ($path == "/privacy") {
 }
 
 if ($path == "/") {
-    make_index ();
+    make_index (0);
+    exit ();
+}
+
+if ($path == "/admin") {
+    make_index (1);
     exit ();
 }
 
@@ -348,6 +356,11 @@ function make_sign ($sign_num) {
     $body .= sprintf ("  <span>%s</span>\n", h($s->banner_title));
     $body .= "</div>\n";
 
+    if (@$s->awaiting_installation) {
+        $body .= "<div class='awaiting'>"
+              ." <em>This sign is awaiting installation</em></div>\n";
+    }
+
     $body .= "<header class='mainheader'>\n";
 
     $body .= "<nav>\n"
@@ -423,7 +436,7 @@ function make_privacy () {
     pfinish ();
 }
 
-function make_index () {
+function make_index ($admin_flag) {
     global $body, $signs;
 
     $locs = array ();
@@ -445,6 +458,9 @@ function make_index () {
             $img = sprintf ("sign%d-banner-lores.jpg", $s->sign_num);
 
             $body .= "<div class='index_sign'>\n";
+            if (@$s->awaiting_installation) {
+                $body .= "<div><em>awaiting installation</em></div>\n";
+            }
             $body .= sprintf ("<h3><a href='%s'>%s</a></h3>\n", 
                 fix_target ($main_target),
                 $s->html_title['en']);
@@ -470,9 +486,11 @@ function make_index () {
                 $t = sprintf ("/sticker.php?s=%d", $s->sign_num);
             }
 
-            $body .= $sep;
-            $body .= sprintf ("<a href='%s'>sicker</a>", $t);
-
+            if ($admin_flag) {
+                $body .= $sep;
+                $body .= sprintf ("<a href='%s'>sticker</a>", $t);
+            }
+            
             if (isset ($s->inplace)) {
                 $body .= "<div>\n";
                 for ($inplace_num = 1;
