@@ -130,6 +130,10 @@ FILES = style.css \
 	sign2001-img2.jpg \
 	sign2001-img3.jpg \
 	sign2001-img4.jpg \
+	sign2001-img5.jpg \
+	sign2001-img6.jpg \
+	sign2001-img7.jpg \
+	sign2001-img8.jpg \
 	\
 	s2002-en.html \
 	sign2002-banner-hires.jpg \

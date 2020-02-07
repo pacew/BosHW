@@ -256,6 +256,22 @@ aside img {
     width: 100%;
 }
 
+.sidecaption {
+    width: 100%;
+    display: flex;
+    align-items: start;
+}
+
+.sidecaption img {
+    max-width: 70%;
+    width: auto;
+}
+
+.sidecaption div {
+    width: 29%;
+    padding: 1em;
+}
+
 @media only screen and (min-width: 150px) and (max-width: 600px) {
     body.sign1801 { background-image: url(./sign1801-bg-lores.jpg); }
     body.sign1802 { background-image: url(./sign1802-bg-lores.jpg); }
