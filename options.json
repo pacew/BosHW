@@ -5,8 +5,8 @@
   "app_php": 1,
 
   "a1.pacew.com": {
-    "vent-production": {
-      "external_name": "vent.pacew.org"
+    "boshw-production": {
+      "external_name": "BosHW.us"
     }
   }
 }
