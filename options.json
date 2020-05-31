@@ -1,4 +1,12 @@
 {
   "site_type": "php",
-  "example_path": "1801"
+  "example_path": "1801",
+  "flat": 1,
+  "app_php": 1,
+
+  "a1.pacew.com": {
+    "vent-production": {
+      "external_name": "vent.pacew.org"
+    }
+  }
 }
