@@ -19,6 +19,7 @@ $s->main_caption_html['es'] = "Samuel H. Pook tenía 23 años cuando"
     ." clippers y uno de los clippers más activos en el comercio"
     ." con China. Más adelante, Pook se convirtió en arquitecto"
     ." naval de la Armada de los Estados Unidos.";
+$s->inplace = 1;
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
@@ -34,6 +35,7 @@ $s->main_caption_html['en'] = "Small buildings housed the many businesses"
 $s->main_caption_html['es'] = "Los edificios pequeños albergaban muchos"
     ." negocios y había pilas de maderos a lo largo de los muelles."
     ." (Border Street entre Central Square y Maverick Street)";
+$s->inplace = 1;
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
@@ -57,6 +59,7 @@ $s->main_caption_html['es'] = "Esta  foto de 1928 tomada desde el agua"
     ." del país. La compañía Crandall Dry Dock Engineers diseñó y"
     ." construyó los varaderos en este sitio y trasladó sus oficinas"
     ." aquí en 1891.";
+$s->inplace = 1;
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
@@ -71,6 +74,7 @@ $s->main_caption_html['en'] = "U.S.R.S. <em>Wabash</em> doing duty as a"
     ." Yard in the late 1870s.";
 $s->main_caption_html['es'] = "La embarcación U.S.R.S. Wabash operando como"
     ."buque receptor en Charleston Navy Yard a fines de la década de 1870.";
+$s->inplace = 1;
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
@@ -86,6 +90,7 @@ $s->main_caption_html['en'] = "Joshua Winer's mural depicts"
 $s->main_caption_html['es'] = "El mural de Joshua Winer muestra a mujeres y"
     ." hombres de Massachusetts que participan en actividades en un"
     ." campamento estacional durante la era precolonial.";
+$s->inplace = 1;
 $signs[$s->sign_num] = $s;
 
 $s = (object)NULL;
@@ -104,7 +109,7 @@ $s->main_caption_html['es'] = "Dos tipos de espartillo"
     ." fueron las especies de plantas introducidas originalmente"
     ." en la marisma baja y alta. Ahora muchas más plantas se han"
     ." establecido en la Costa Viva. &iquest;Cuántas pueden identificar?";
-$s->inplace = 1;
+$s->inplace = 2;
 
 $signs[$s->sign_num] = $s;
 

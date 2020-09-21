@@ -1,0 +1,6 @@
+convert raw.jpg -resize 1920 inplaceSIGNNUM-N-hi.jpg
+convert raw.jpg -resize 100 inplaceSIGNNUM-N-lo.jpg
+
+in index.php:
+in sign defs:
+$s->inplace = N
