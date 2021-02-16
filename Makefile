@@ -8,6 +8,9 @@ QRFILES_ES = qr1801-es.png qr1802-es.png qr1803-es.png qr1804-es.png \
 	qr1904-es.png qr1905-es.png qr1906-es.png \
 	qr2001-es.png qr2002-es.png qr2003-es.png
 
+QRFILES_NEIGHBORHOOD = qr101.png qr102.png qr103.png \
+	qr104.png qr105.png qr106.png
+
 QRZIP=boshw-qr-$(shell date +%Y%m%d).zip
 
 FILES = style.css \
@@ -201,9 +204,34 @@ qr2002.png qr2002-es.png: mkqr
 qr2003.png qr2003-es.png: mkqr
 	./mkqr 2003
 
+qr101.png: mkqr
+	./mkqr 101
+
+qr102.png: mkqr
+	./mkqr 102
+
+qr103.png: mkqr
+	./mkqr 103
+
+qr104.png: mkqr
+	./mkqr 104
+
+qr105.png: mkqr
+	./mkqr 105
+
+qr106.png: mkqr
+	./mkqr 106
+
+
 $(QRZIP): $(QRFILES) $(QRFILES_ES)
 	rm -f $(QRZIP)
 	zip $(QRZIP) $(QRFILES) $(QRFILES_ES)
+
+qr-neighborhood.zip: $(QRFILES_NEIGHBORHOOD)
+	rm -f qr-neighborhood.zip
+	zip qr-neighborhood.zip qr101-es.png qr102-es.png qr103-es.png \
+		qr104-es.png qr105-es.png qr106-es.png
+
 
 publish:
 	rsync -avz $(FILES) $(QRFILES) $(QRFILES_ES) \
