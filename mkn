@@ -1,0 +1,71 @@
+#! /bin/sh
+
+if [ $# != 2 ]
+then
+    echo "usage: mkn signid neighborhood"
+    exit 1
+fi
+
+signid=$1
+neighborhood="$2"
+
+# smallest style qr code can hold (upper case alpha, numeric, a few symbols):
+# 25 chars at level L
+# 20 chars at level M
+# 16 chars at level Q
+# 10 chars at level H
+
+
+# with 4 digit signid, this is 20 chars
+qrmsg="HTTP://BOSHW.US/$signid"
+url_label="http://BosHW.us/$signid"
+
+outname=qr${signid}.png
+outname_es=qr${signid}-es.png
+
+cellsize=120
+
+f_core=TMP.core.png
+f_grid=TMP.grid.png
+f_url_label=TMP.url_label.png
+f_more=TMP.more.png
+f_more_es=TMP.more_es.png
+f_neighborhood=TMP.neighborhood.png
+
+qrencode -o $f_core --margin=0 --size=${cellsize} --level=M --type=PNG "$qrmsg"
+qrencode -o $f_grid            --size=${cellsize} --level=M --type=PNG "$qrmsg"
+
+core_width=`convert $f_core -format "%w" info:`
+grid_width=`convert $f_grid -format "%w" info:`
+
+url_pointsize=`convert \
+	-size "$core_width" \
+	-font Courier-Bold \
+ 	label:"$url_label" \
+	-format '%[label:pointsize]' \
+	info:`
+url_h=`convert -size "$core_width" -font Courier-Bold label:"$url_label" \
+	-format '%h' info:`
+
+url_h=`expr $url_h + 6`
+
+convert -size ${core_width}x${url_h} -gravity center -pointsize $url_pointsize \
+	-font Courier-Bold label:"$url_label" $f_url_label
+
+convert -size ${core_width}x${url_h} -gravity center -pointsize $url_pointsize \
+	-font Courier-Bold label:"$neighborhood" $f_neighborhood
+
+
+convert -pointsize $url_pointsize \
+	-size x${url_h} \
+	-font NewCenturySchlbk-Italic \
+	label:"more info..." $f_more
+
+convert -pointsize $url_pointsize \
+	-size x${url_h} \
+	-font NewCenturySchlbk-Italic \
+	label:"en español & more info..." $f_more_es
+
+convert $f_more_es $f_grid $f_url_label $f_neighborhood -gravity center -append $outname
+
+echo "output in $outname"

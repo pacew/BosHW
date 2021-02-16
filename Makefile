@@ -205,22 +205,22 @@ qr2003.png qr2003-es.png: mkqr
 	./mkqr 2003
 
 qr101.png: mkqr
-	./mkqr 101
+	./mkn 101 'Charlestown'
 
 qr102.png: mkqr
-	./mkqr 102
+	./mkn 102 'Dorchester'
 
 qr103.png: mkqr
-	./mkqr 103
+	./mkn 103 'East Boston'
 
 qr104.png: mkqr
-	./mkqr 104
+	./mkn 104 'North End'
 
 qr105.png: mkqr
-	./mkqr 105
+	./mkn 105 'South Boston'
 
 qr106.png: mkqr
-	./mkqr 106
+	./mkn 106 'Wharf District'
 
 
 $(QRZIP): $(QRFILES) $(QRFILES_ES)
@@ -229,8 +229,8 @@ $(QRZIP): $(QRFILES) $(QRFILES_ES)
 
 qr-neighborhood.zip: $(QRFILES_NEIGHBORHOOD)
 	rm -f qr-neighborhood.zip
-	zip qr-neighborhood.zip qr101-es.png qr102-es.png qr103-es.png \
-		qr104-es.png qr105-es.png qr106-es.png
+	zip qr-neighborhood.zip qr101.png qr102.png qr103.png \
+		qr104.png qr105.png qr106.png
 
 
 publish:
