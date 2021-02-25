@@ -20,7 +20,6 @@ qrmsg="HTTP://BOSHW.US/$signid"
 url_label="http://BosHW.us/$signid"
 
 outname=qr${signid}.png
-outname_es=qr${signid}-es.png
 
 cellsize=120
 
@@ -28,7 +27,6 @@ f_core=TMP.core.png
 f_grid=TMP.grid.png
 f_url_label=TMP.url_label.png
 f_more=TMP.more.png
-f_more_es=TMP.more_es.png
 
 qrencode -o $f_core --margin=0 --size=${cellsize} --level=M --type=PNG "$qrmsg"
 qrencode -o $f_grid            --size=${cellsize} --level=M --type=PNG "$qrmsg"
@@ -54,14 +52,21 @@ convert -size ${core_width}x${url_h} -gravity center -pointsize $url_pointsize \
 convert -pointsize $url_pointsize \
 	-size x${url_h} \
 	-font NewCenturySchlbk-Italic \
-	label:"more info..." $f_more
+	label:"   , en español, & more" $f_more
 
-convert -pointsize $url_pointsize \
-	-size x${url_h} \
-	-font NewCenturySchlbk-Italic \
-	label:"en español & more info..." $f_more_es
+# was 288 high
+s=SmallSpeakerImage-296643-openclipart.png
+convert -flatten $s -resize '40%' TMP.s1.png
+convert -size 1x40 xc:white TMP.s2.png
+convert -append TMP.s2.png TMP.s1.png TMP.s3.png
 
-convert $f_more $f_grid $f_url_label -gravity center -append $outname
-convert $f_more_es $f_grid $f_url_label -gravity center -append $outname_es
 
-echo "output in $outname $outname_es"
+convert -size 20x20 xc:white TMP.space.png
+convert +append TMP.s3.png TMP.space.png $f_more TMP.speaker.png
+
+convert -size 20x30 xc:white TMP.space2.png
+convert -size 20x50 xc:white TMP.space3.png
+
+convert $f_grid $f_url_label TMP.space2.png TMP.speaker.png TMP.space3.png -gravity center -append $outname
+
+echo "output in $outname"
